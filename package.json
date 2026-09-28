@@ -1,0 +1,20 @@
+{
+  "name": "wide-media-card",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "scripts": {
+    "build": "bun build src/wide-media-card.ts --outfile wide-media-card.js --target browser --format esm --minify",
+    "dev": "bun dev-server.mjs",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write \"**/*.{ts,md,json,mjs}\"",
+    "format:check": "prettier --check \"**/*.{ts,md,json,mjs}\""
+  },
+  "dependencies": {
+    "lit": "^3.3.1"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.6",
+    "typescript": "^5.9.3"
+  }
+}
