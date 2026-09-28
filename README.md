@@ -6,13 +6,15 @@ A responsive landscape touchscreen card for Music Assistant media players in Hom
 
 ### HACS
 
-Add this repository to HACS as a custom repository with the **Dashboard** category, then install **Wide Media Card**. Add the installed resource to your dashboard if Home Assistant does not add it automatically.
+Add this repository to HACS as a custom repository with the **Dashboard** category, then install **Wide Media Card**. Releases provide the built JavaScript bundle, so install a published release in HACS. Add the installed resource to your dashboard if Home Assistant does not add it automatically.
 
 **Requirement:** install the [mass_queue integration](https://github.com/droans/mass_queue) through HACS to enable full queue browsing and editing, including previous tracks. Without it, the card shows limited queue information using Music Assistant's built-in services.
 
 ### Manual
 
-Copy `wide-media-card.js` into your Home Assistant `www` directory and add `/local/wide-media-card.js` as a dashboard resource with type `JavaScript module`.
+Run `bun install` and `bun run build`, then copy the generated `wide-media-card.js` into your Home Assistant `www` directory and add `/local/wide-media-card.js` as a dashboard resource with type `JavaScript module`.
+
+To publish a release, push a version tag such as `v0.1.0`. GitHub Actions builds the card and attaches `wide-media-card.js` to the release for HACS to install.
 
 ## Development
 
