@@ -207,7 +207,7 @@ class MusicAssistantMediaCard extends LitElement {
   }
 
   private sliderValue(event: Event): number {
-    return Number((event as CustomEvent<{ value: number }>).detail.value);
+    return Number((event.currentTarget as HTMLElement & { value: number }).value);
   }
 
   private position(entity: HassEntity): number {
@@ -276,7 +276,7 @@ class MusicAssistantMediaCard extends LitElement {
               .value=${position}
               style=${`--position-slider-progress: ${positionProgress}%;`}
               ?disabled=${!duration}
-              @value-changed=${(event: Event) => this.call("media_seek", { seek_position: this.sliderValue(event) })}
+              @change=${(event: Event) => this.call("media_seek", { seek_position: this.sliderValue(event) })}
               aria-label="Playback position"
             ></ha-slider>
             <span>${formatTime(duration)}</span>
@@ -323,7 +323,7 @@ class MusicAssistantMediaCard extends LitElement {
               min="0"
               max="100"
               .value=${volume}
-              @value-changed=${(event: Event) => this.call("volume_set", { volume_level: this.sliderValue(event) / 100 })}
+              @change=${(event: Event) => this.call("volume_set", { volume_level: this.sliderValue(event) / 100 })}
               aria-label="Volume"
             ></ha-slider>
           </div>

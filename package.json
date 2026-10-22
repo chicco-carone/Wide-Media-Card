@@ -4,6 +4,7 @@
   "private": false,
   "type": "module",
   "scripts": {
+    "test": "bun test",
     "build": "bun build src/wide-media-card.ts --outfile wide-media-card.js --target browser --format esm --minify",
     "dev": "bun dev-server.mjs",
     "typecheck": "tsc --noEmit",
@@ -14,6 +15,7 @@
     "lit": "^3.3.1"
   },
   "devDependencies": {
+    "happy-dom": "^21.0.4",
     "prettier": "^3.9.6",
     "typescript": "^5.9.3"
   }
